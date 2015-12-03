@@ -1,5 +1,5 @@
 class BuzzesController < ApplicationController
   def create
-    render json: {accepted: false}
+    render json: {accepted: true}
   end
 end
