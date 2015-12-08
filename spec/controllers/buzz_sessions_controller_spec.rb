@@ -19,4 +19,14 @@ RSpec.describe BuzzSessionsController, type: :controller do
     data = OpenStruct.new(JSON.parse(response.body))
     expect(data.winning_buzz_id).to eq(1)
   end
+
+  it 'deletes buzz sessions and associated buzzes' do
+    buzz_session = BuzzSession.create!
+    buzz_session.buzzes.create!
+
+    post :delete_all
+
+    expect(Buzz.all).to be_empty
+    expect(BuzzSession.all).to be_empty
+  end
 end
