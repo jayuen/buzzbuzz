@@ -2,6 +2,12 @@ Buzzbuzz::Application.routes.draw do
   resources :buzzes do
   end
 
+  resources :buzz_sessions do
+    collection do
+      post :delete_all
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
