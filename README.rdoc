@@ -1,4 +1,0 @@
-== README
-
-An REST API and a sample client that can be used as a buzzer.
-
