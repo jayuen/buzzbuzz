@@ -22,4 +22,10 @@ RSpec.describe BuzzesController, type: :controller do
     data = OpenStruct.new(JSON.parse(response.body))
     expect(data.accepted).to eq(false)
   end
+
+  it "buzzes are associated with a buzz session" do
+    expect do
+      post :create
+    end.to change { BuzzSession.last.buzzes.size }
+  end
 end
