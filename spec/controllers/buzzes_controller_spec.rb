@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe BuzzesController, type: :controller do
   before do
-    BuzzSession.create! next_buzz_sequence: 1
+    BuzzSession.create! winning_buzz_id: 1
   end
 
   it "creates an accepted buzz when it's the first one of the buzz session" do

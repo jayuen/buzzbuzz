@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208045844) do
+ActiveRecord::Schema.define(version: 20151208051118) do
 
   create_table "buzz_sessions", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "next_buzz_sequence"
+    t.integer  "winning_buzz_id"
   end
 
   create_table "buzzes", force: true do |t|
