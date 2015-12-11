@@ -7,4 +7,10 @@ $(function() {
       document.querySelector('#winner-result').innerHTML = message.name;
     }
   )
+
+  dispatcher.subscribe('buzz_sessions').bind('new',
+    function(message) {
+      document.querySelector('#buzz-session .time').innerHTML = message.timestamp;
+    }
+  )
 });

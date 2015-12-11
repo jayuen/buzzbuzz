@@ -1,7 +1,8 @@
 class BuzzSessionsController < ApplicationController
   def create
-    buzz_session = BuzzSession.create(winning_buzz_id: winning_buzz_id)
-    render json: {winning_buzz_id: buzz_session.winning_buzz_id}
+    BuzzSession.create(winning_buzz_id: winning_buzz_id)
+    notify_create
+    render nothing: true
   end
 
   def delete_all
@@ -13,6 +14,10 @@ class BuzzSessionsController < ApplicationController
   end
 
   private
+
+  def notify_create
+    WebsocketRails[:buzz_sessions].trigger(:new, {timestamp: Time.zone.now.strftime("%I:%M:%S %p")})
+  end
 
   def winning_buzz_id
     result = Buzz.connection.execute("select seq from sqlite_sequence where name='buzzes'").first
