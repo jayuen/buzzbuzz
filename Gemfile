@@ -13,3 +13,6 @@ gem 'jbuilder', '~> 1.2'
 group :development, :test do
   gem 'rspec-rails', '~> 3.4'
 end
+
+gem 'thin'
+gem 'websocket-rails'
