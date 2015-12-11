@@ -9,6 +9,9 @@ class BuzzSessionsController < ApplicationController
     render json: {}
   end
 
+  def index
+  end
+
   private
 
   def winning_buzz_id
