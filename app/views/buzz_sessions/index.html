@@ -7,6 +7,9 @@
   <%= submit_tag 'Reset' %>
 <% end %>
 </div>
+<div id="buzz-session">
+  <span>Buzz session reset at: </span><span class='time'>WAITING</span>
+</div>
 
 <div>
 <%= form_tag("/buzzes", remote: true) do %>
@@ -15,9 +18,5 @@
 <% end %>
 </div>
 
-
-<div id="buzz-session">
-  <span>Buzz session reset at: </span><span class='time'>WAITING</span>
-</div>
-<div id="winner-result">
+<div id="winner-result" style="font-size: 45px">
 </div>
