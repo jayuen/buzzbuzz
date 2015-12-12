@@ -15,3 +15,5 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.4'
 end
 
+gem 'redis'
+gem 'socket.io-rails'

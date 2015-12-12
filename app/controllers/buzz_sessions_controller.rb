@@ -1,8 +1,8 @@
 class BuzzSessionsController < ApplicationController
   def create
-    BuzzSession.create(winning_buzz_id: winning_buzz_id)
+    buzz_session = BuzzSession.create(winning_buzz_id: winning_buzz_id)
     notify_create
-    render nothing: true
+    render json: {winning_buzz_id: buzz_session.id}
   end
 
   def delete_all
@@ -16,7 +16,7 @@ class BuzzSessionsController < ApplicationController
   private
 
   def notify_create
-    WebsocketRails[:buzz_sessions].trigger(:new, {timestamp: Time.zone.now.strftime("%I:%M:%S %p")})
+    $redis.publish('new-buzz-session', {timestamp: Time.zone.now.strftime("%I:%M:%S %p")}.to_json)
   end
 
   def winning_buzz_id

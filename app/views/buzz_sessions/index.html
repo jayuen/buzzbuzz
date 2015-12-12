@@ -1,22 +1,3 @@
 <%= content_for :head do %>
   <%= javascript_include_tag :application %>
 <% end %>
-
-<div>
-<%= form_tag("/buzz_sessions", remote: true) do %>
-  <%= submit_tag 'Reset' %>
-<% end %>
-</div>
-<div id="buzz-session">
-  <span>Buzz session reset at: </span><span class='time'>WAITING</span>
-</div>
-
-<div>
-<%= form_tag("/buzzes", remote: true) do %>
-  <%= text_field_tag :name %>
-  <%= submit_tag 'Buzz' %>
-<% end %>
-</div>
-
-<div id="winner-result" style="font-size: 45px">
-</div>
