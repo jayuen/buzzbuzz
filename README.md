@@ -10,7 +10,8 @@ An REST API, socket.io server, and a sample client that can be used as a buzzer.
 ## Start up the socket.io server
 
 1. `cd realtime`
-2. `npm start`
+2. `npm install`
+3. `npm start`
 
 ## Buzzing Via API
 
