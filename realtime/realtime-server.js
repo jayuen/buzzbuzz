@@ -3,7 +3,7 @@ var io = require('socket.io').listen(5001),
 
 io.set('origins', 'http://localhost:3000');
 
-redis.subscribe('winner');
+redis.subscribe('buzz');
 redis.subscribe('new-buzz-session');
 
 io.on('connection', function(socket){

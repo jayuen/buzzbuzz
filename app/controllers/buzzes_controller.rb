@@ -15,8 +15,6 @@ class BuzzesController < ApplicationController
   end
 
   def notify(name, winning_buzz)
-    if winning_buzz
-      $redis.publish('winner', {name: name}.to_json)
-    end
+    $redis.publish('buzz', {name: name, winner: winning_buzz}.to_json)
   end
 end

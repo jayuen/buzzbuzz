@@ -6,7 +6,7 @@ $(function() {
       window.socket.on("new-buzz-session", function(message){
         console.log(message);
       });
-      window.socket.on("winner", function(message){
+      window.socket.on("buzz", function(message){
         console.log(message);
       });
     }
