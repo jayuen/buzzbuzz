@@ -18,3 +18,5 @@
 /**/*.swp
 /**/*.swo
 /.idea
+/realtime/node_modules
+/realtime/npm-debug.log

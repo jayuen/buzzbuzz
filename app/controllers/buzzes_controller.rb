@@ -16,7 +16,7 @@ class BuzzesController < ApplicationController
 
   def notify(name, winning_buzz)
     if winning_buzz
-      WebsocketRails[:winning_buzzes].trigger(:winner, {name: name})
+      $redis.publish('winner', {name: name}.to_json)
     end
   end
 end
