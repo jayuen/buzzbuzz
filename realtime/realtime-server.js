@@ -1,7 +1,7 @@
 var io = require('socket.io').listen(5001),
     redis = require('redis').createClient();
 
-io.set('origins', 'http://localhost:3000');
+io.set('origins', 'localhost:*');
 
 redis.subscribe('buzz');
 redis.subscribe('new-buzz-session');
