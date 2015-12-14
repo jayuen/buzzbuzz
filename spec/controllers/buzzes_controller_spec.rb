@@ -29,6 +29,18 @@ RSpec.describe BuzzesController, type: :controller do
     expect(data.winner).to eq(false)
   end
 
+  it "does not allow buzzing twice for the same session, same name" do
+    create_buzz_session
+    Buzz.create!
+
+    post :create, name: 'team1'
+    post :create, name: 'team1'
+
+    expect(response.status).to eq(422)
+    data = OpenStruct.new(JSON.parse(response.body))
+    expect(data.error).to match(/already buzzed in/)
+  end
+
   it "buzzes are associated with a buzz session" do
     create_buzz_session
 
