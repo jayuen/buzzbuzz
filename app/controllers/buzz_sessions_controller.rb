@@ -1,10 +1,4 @@
 class BuzzSessionsController < ApplicationController
-  before_filter :set_cors_headers
-
-  def set_cors_headers
-    headers['Access-Control-Allow-Origin'] = '*'
-  end
-
   def create
     buzz_session = BuzzSession.create(winning_buzz_id: winning_buzz_id)
     notify_create
