@@ -4,6 +4,7 @@ source 'http://rubygems.org'
 gem 'rails', '4.0.13'
 gem 'sqlite3'
 gem 'jquery-rails'
+gem 'rack-cors'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
